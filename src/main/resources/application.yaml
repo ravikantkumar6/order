@@ -4,14 +4,14 @@ spring:
   webflux:
     base-path: /api/order/v1
   r2dbc:
-    url: r2dbc:mysql://localhost:3306/mysql #jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_example
+    url: r2dbc:mysql://localhost:3306/orders
     username: root
     password: root
     initialization-mode: always
-  jpa:
-    database-platform: org.hibernate.dialect.MySQL5Dialect
-    hibernate.ddl-auto: update
-    show-sql: true
+#  jpa:
+#    database-platform: org.hibernate.dialect.MySQL5Dialect
+#    hibernate.ddl-auto: update
+#    show-sql: true
 management:
   endpoints:
     web:
@@ -24,3 +24,8 @@ management:
 springdoc:
   api-docs:
     enabled: true
+logging:
+  level:
+    org:
+      springframework:
+        r2dbc: DEBUG

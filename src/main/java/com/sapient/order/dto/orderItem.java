@@ -8,11 +8,10 @@ import org.springframework.data.annotation.Id;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Order {
+public class orderItem {
     @Id
-    private Integer id;
-    private String OrderId;
-    private String orderDescription;
-    private Integer orderTotalAmount;
-
+    private long id;
+    private String orderId;
+    private String productId;
+    private long quantity;
 }
