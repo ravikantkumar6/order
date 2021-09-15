@@ -13,6 +13,7 @@ import org.springframework.transaction.ReactiveTransactionManager;
 
 @SpringBootApplication
 @EnableR2dbcRepositories
+
 public class OrderApplication {
 
     public static void main(String[] args) {

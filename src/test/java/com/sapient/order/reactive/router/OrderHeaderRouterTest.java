@@ -1,4 +1,4 @@
-package com.sapient.order.router;
+package com.sapient.order.reactive.router;
 
 import com.sapient.order.dto.OrderHeader;
 import com.sapient.order.util.BaseTestCase;
@@ -16,7 +16,7 @@ class OrderHeaderRouterTest extends BaseTestCase {
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody(OrderHeader.class).value(greeting -> {
-                    Assertions.assertThat(greeting.getMessage()).isEqualTo("Get All Order");
+                    Assertions.assertThat(greeting.getOrderId()).isGreaterThan("0");
                 });
     }
 
@@ -28,7 +28,7 @@ class OrderHeaderRouterTest extends BaseTestCase {
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody(OrderHeader.class).value(greeting -> {
-                    Assertions.assertThat(greeting.getMessage()).isEqualTo("Save Order");
+                    Assertions.assertThat(greeting.getOrderId()).isEqualTo("0");
                 });
     }
 }

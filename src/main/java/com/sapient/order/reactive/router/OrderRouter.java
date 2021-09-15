@@ -1,7 +1,7 @@
-package com.sapient.order.router;
+package com.sapient.order.reactive.router;
 
 import com.sapient.order.dto.OrderHeader;
-import com.sapient.order.handler.OrderHandler;
+import com.sapient.order.reactive.handler.OrderHandler;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

@@ -1,4 +1,4 @@
-package com.sapient.order.repository;
+package com.sapient.order.reactive.repository;
 
 import com.sapient.order.dto.OrderHeader;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
