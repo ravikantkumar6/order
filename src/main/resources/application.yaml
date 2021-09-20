@@ -3,11 +3,34 @@ server:
 spring:
   webflux:
     base-path: /api/order/v1
-  r2dbc:
-    url: r2dbc:mysql://localhost:3306/orders
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/orders
     username: root
     password: root
-    initialization-mode: always
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate.ddl-auto: update
+    show-sql: true
+
+  kafka:
+    transaction-timeout: 10000
+    request-timeout: 10000
+    bootstrap-servers: http://localhost:9092
+    consumer:
+      timeout:
+        ms: 5000
+    auto:
+      commit:
+        interval:
+          ms: 5000
+product:
+  import: true
+
+#  r2dbc:
+#    url: r2dbc:mysql://localhost:3306/orders
+#    username: root
+#    password: root
+#    initialization-mode: always
 #  jpa:
 #    database-platform: org.hibernate.dialect.MySQL5Dialect
 #    hibernate.ddl-auto: update

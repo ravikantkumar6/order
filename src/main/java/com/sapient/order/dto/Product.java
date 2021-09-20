@@ -1,35 +1,33 @@
 package com.sapient.order.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
+@Builder
 @ToString
-@Entity(name = "OrderHeader")
+@Entity(name = "Product")
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderHeader implements Serializable {
+public class Product implements Serializable {
     private static final long serialVersionUID = -558043294043707772L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
     @Column
-    private String OrderDetail;
+    private String name;
+    @Column
+    private String description;
+    @Column
+    private Double price;
+
+    @Enumerated(EnumType.ORDINAL)
+    private Category category;
     @Column
     private LocalDateTime updatedDate;
     @Column
     private LocalDateTime createdDate;
-
-    @OneToMany
-    @JoinColumn(name = "order_id", referencedColumnName = "id")
-    private List<OrderItem> orderItems;
-
 }

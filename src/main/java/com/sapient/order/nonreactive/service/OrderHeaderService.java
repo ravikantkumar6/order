@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface OrderHeaderService {
     List<OrderHeader> getAllOrderHeader();
+
+    OrderHeader createOrderHeader(OrderHeader orderHeader);
 }

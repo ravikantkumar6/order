@@ -10,8 +10,6 @@ import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
-import static org.springframework.web.reactive.function.BodyInserters.fromValue;
-
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -27,7 +25,8 @@ public class OrderHandler {
 
     public Mono<ServerResponse> saveOrder(ServerRequest request) {
         log.info("Save Order");
-        return request.bodyToMono(OrderHeader.class).flatMap(order -> orderService.saveOrder(order))
-                .flatMap(orderHeader -> ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).body(fromValue(orderHeader)));
+        return request.bodyToMono(OrderHeader.class)
+                .doOnNext(orderHeader -> orderService.saveOrder(orderHeader))
+                .then(ServerResponse.ok().build());
     }
 }
