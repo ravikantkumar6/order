@@ -1,9 +1,9 @@
-package com.sapient.order.dto;
+package com.sapient.order.model.enums;
 
 public enum Category {
     APPLIANCES,
     BOOKS,
     COSMETICS,
     ELECTRONICS,
-    OUTDOOR;
+    OUTDOOR
 }

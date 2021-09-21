@@ -1,7 +1,7 @@
 package com.sapient.order.nonreactive.service.impl;
 
-import com.sapient.order.dto.Category;
-import com.sapient.order.dto.Product;
+import com.sapient.order.model.Product;
+import com.sapient.order.model.enums.Category;
 import com.sapient.order.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
@@ -19,7 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductImport {
 
-    public static final String INVENTORY_CREATE = "inventory_create";
+    public static final String INVENTORY_CREATE = "inventory.create";
     private final ProductRepository productRepository;
 
     private final KafkaTemplate<String, String> kafkaTemplate;

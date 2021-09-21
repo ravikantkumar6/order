@@ -1,5 +1,6 @@
-package com.sapient.order.dto;
+package com.sapient.order.model;
 
+import com.sapient.order.model.enums.Category;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,7 +25,7 @@ public class Product implements Serializable {
     @Column
     private Double price;
 
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private Category category;
     @Column
     private LocalDateTime updatedDate;

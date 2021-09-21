@@ -1,3 +1,4 @@
+spring.cloud.config.discovery.enabled: false
 server:
   port: 9001
 spring:
@@ -24,7 +25,7 @@ spring:
         interval:
           ms: 5000
 product:
-  import: true
+  import: false
 
 #  r2dbc:
 #    url: r2dbc:mysql://localhost:3306/orders

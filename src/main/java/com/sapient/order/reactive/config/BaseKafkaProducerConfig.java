@@ -2,7 +2,6 @@
 package com.sapient.order.reactive.config;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
-import org.apache.kafka.common.serialization.IntegerDeserializer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
@@ -27,7 +26,7 @@ public class BaseKafkaProducerConfig {
     /**
      * The Logger for this class.
      */
-    private static Logger logger = LoggerFactory.getLogger(BaseKafkaProducerConfig.class);
+    private static final Logger logger = LoggerFactory.getLogger(BaseKafkaProducerConfig.class);
 
     @Value(value = "${spring.kafka.bootstrap-servers}")
     private String bootstrapAddress;
@@ -62,7 +61,7 @@ public class BaseKafkaProducerConfig {
         configMap.put(ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG, requestTimeout);
         configMap.put(ProducerConfig.MAX_BLOCK_MS_CONFIG, 1000);
         configMap.put(ProducerConfig.BUFFER_MEMORY_CONFIG, 33554432);
-        configMap.put(ProducerConfig.ACKS_CONFIG,acknowledge);
+        configMap.put(ProducerConfig.ACKS_CONFIG, acknowledge);
         configMap.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         configMap.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaJsonSerializer.class);
         return configMap;
@@ -83,7 +82,7 @@ public class BaseKafkaProducerConfig {
      *
      * @return
      */
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     @Bean
     @Lazy(true)
     public KafkaTemplate kafkaTemplate() {

@@ -1,6 +1,6 @@
 package com.sapient.order.reactive.router;
 
-import com.sapient.order.dto.OrderHeader;
+import com.sapient.order.model.OrderHeader;
 import com.sapient.order.util.BaseTestCase;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;

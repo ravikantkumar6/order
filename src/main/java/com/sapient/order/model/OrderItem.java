@@ -1,4 +1,4 @@
-package com.sapient.order.dto;
+package com.sapient.order.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

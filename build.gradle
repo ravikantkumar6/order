@@ -37,6 +37,7 @@ dependencies {
 dependencyManagement {
     imports {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:2020.0.2"
+        mavenBom "io.projectreactor:reactor-bom:2020.0.11"
     }
 }
 test {

@@ -29,7 +29,7 @@ public class BaseKafkaConsumerConfig {
     /**
      * The Logger for this class.
      */
-    private static Logger logger = LoggerFactory.getLogger(BaseKafkaConsumerConfig.class);
+    private static final Logger logger = LoggerFactory.getLogger(BaseKafkaConsumerConfig.class);
 
     @Value(value = "${spring.kafka.bootstrap-servers}")
     private String bootstrapAddress;
